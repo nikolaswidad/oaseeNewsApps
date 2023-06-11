@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">oaseNews</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_bookmarks">Bookmarks</string>
+    <string name="all_profile">Profile</string>
+    <string name="home_search_placeholder">Search News</string>
+    <string name="profile_name">Nikolas Widad</string>
+    <string name="profile_email">nikolas.widad@gmail.com</string>
+    <string name="generic_empty">Empty Image</string>
+    <string name="home_search_empty">Sorry, we couldn\'t find your news :(</string>
+    <string name="bookmark_empty">You haven\'t add any bookmark news yet</string>
+    <string name="all_back">Back</string>
+    <string name="all_news">News</string>
+
+    <string name="tv_sentiment">Sentiment</string>
+    <string name="tv_accurate_score">Accurate\nScore</string>
+</resources>
