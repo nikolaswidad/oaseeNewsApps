@@ -13,7 +13,7 @@ class RemoteDataSource(private val apiClient: ApiClient) {
     suspend fun loadNews() =
         flow {
             try {
-                val response = apiClient.loadNews(COUNTRY_ID, API_KEY).articles
+                val response = apiClient.loadNews("news").articles
                 if (response.isNullOrEmpty()) {
                     emit(ApiResponse.Empty)
                 } else {
@@ -24,17 +24,17 @@ class RemoteDataSource(private val apiClient: ApiClient) {
             }
         }.flowOn(Dispatchers.IO)
 
-    suspend fun searchNews(q: String) =
-        flow {
-            try {
-                val response = apiClient.searchNews(q, API_KEY).articles
-                if (response.isNullOrEmpty()) {
-                    emit(ApiResponse.Empty)
-                } else {
-                    emit(ApiResponse.Success(response))
-                }
-            } catch (e: Exception) {
-                emit(ApiResponse.Error(e.toString()))
-            }
-        }.flowOn(Dispatchers.IO)
+//    suspend fun searchNews(q: String) =
+//        flow {
+//            try {
+//                val response = apiClient.searchNews(q, API_KEY).articles
+//                if (response.isNullOrEmpty()) {
+//                    emit(ApiResponse.Empty)
+//                } else {
+//                    emit(ApiResponse.Success(response))
+//                }
+//            } catch (e: Exception) {
+//                emit(ApiResponse.Error(e.toString()))
+//            }
+//        }.flowOn(Dispatchers.IO)
 }

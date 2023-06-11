@@ -1,6 +1,5 @@
 package com.nikolaswidad.oasenews.datasource
 
-import com.example.newsappcompose.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.remote.api.ApiResponse
 import kotlinx.coroutines.flow.*
 
