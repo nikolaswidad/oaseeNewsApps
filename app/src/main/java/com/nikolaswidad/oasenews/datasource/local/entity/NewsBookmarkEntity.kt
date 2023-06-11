@@ -9,6 +9,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 @Entity(tableName = "news_bookmark_entities")
 class NewsBookmarkEntity(
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    val id: String,
     @ColumnInfo(name = "publishedAt")
     val publishedAt: String? = null,
     @ColumnInfo(name = "author")
@@ -23,7 +26,4 @@ class NewsBookmarkEntity(
     val url: String? = null,
     @ColumnInfo(name = "content")
     val content: String? = null,
-    @PrimaryKey
-    @ColumnInfo(name = "id")
-    val id: String,
 ) : Parcelable

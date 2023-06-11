@@ -5,6 +5,7 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class NewsEntity(
+    val id: String,
     val publishedAt: String? = null,
     val author: String? = null,
     val urlToImage: String? = null,
@@ -12,5 +13,6 @@ data class NewsEntity(
     val title: String? = null,
     val url: String? = null,
     val content: String? = null,
-    val id: String
+    val sentiment: String? = null,
+    val credibilityScore: Int? = null,
 ) : Parcelable

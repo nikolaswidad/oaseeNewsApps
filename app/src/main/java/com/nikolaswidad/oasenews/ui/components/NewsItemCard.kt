@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Card
 import androidx.compose.material.Icon
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -34,25 +35,16 @@ import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 
 @Composable
 fun NewsItemCard(
-//    news: News,
-//    id: Int,
-    title: String,
-    url: String,
-    timestamp: String,
-    credibilityScore: Int,
-    sentiment: String,
-    bookmarked: Boolean,
-//    article : ArticlesItem,
+    news: NewsEntity,
+    onClickListener: (NewsEntity) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
 
-    Card(
+    Surface(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable {
-                // make clickable
-            }
+            .clickable { onClickListener(news) }
     ) {
         Column(
             modifier = modifier
@@ -71,7 +63,7 @@ fun NewsItemCard(
                         .weight(1.0f)
                 ) {
                     Text(
-                        text = title,
+                        text = news.title.toString(),
                         overflow = TextOverflow.Ellipsis,
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
@@ -86,8 +78,8 @@ fun NewsItemCard(
                     )
 
                     Text(
-//                        text = publishedAt,
-                        text = timestamp,
+                        text = news.publishedAt.toString(),
+//                        text = timestamp,
                         maxLines = 1,
                         fontWeight = FontWeight.Light
                     )
@@ -118,7 +110,7 @@ fun NewsItemCard(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Image(
-                        painter = when (sentiment) {
+                        painter = when (news.sentiment) {
                             "positive" -> painterResource(R.drawable.ic_sentiment_negative)
                             "neutral" -> painterResource(R.drawable.ic_sentiment_neutral)
                             else -> painterResource(R.drawable.ic_sentiment_positive)
@@ -157,7 +149,7 @@ fun NewsItemCard(
                     Image(
                         //                    painter = painterResource(R.drawable.ic_credibility_verified),
 
-                        painter = if (credibilityScore == 0)
+                        painter = if (news.credibilityScore == 0)
                             painterResource(R.drawable.ic_credibility_warning)
                         else
                             painterResource(R.drawable.ic_credibility_verified),
@@ -168,7 +160,7 @@ fun NewsItemCard(
                             .width(width = 2.dp)
                     )
                     Text(
-                        text = "${credibilityScore}%",
+                        text = "${news.credibilityScore}%",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
@@ -186,13 +178,13 @@ fun NewsItemCard(
                 }
                 // Row Verified End
 
-                Image(
-                    painter = if (bookmarked)
-                        painterResource(R.drawable.ic_bookmark_solid)
-                    else
-                        painterResource(R.drawable.ic_bookmark_border),
-                    contentDescription = null
-                )
+//                Image(
+//                    painter = if (bookmarked)
+//                        painterResource(R.drawable.ic_bookmark_solid)
+//                    else
+//                        painterResource(R.drawable.ic_bookmark_border),
+//                    contentDescription = null
+//                )
 
             }
         }

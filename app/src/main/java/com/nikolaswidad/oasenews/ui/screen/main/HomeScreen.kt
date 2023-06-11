@@ -24,6 +24,7 @@ import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 import com.nikolaswidad.oasenews.utils.TestTag
 import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.ui.components.IconButtonRow
+import com.nikolaswidad.oasenews.ui.components.NewsItemCard
 import com.nikolaswidad.oasenews.ui.components.RowBar
 import org.koin.androidx.compose.koinViewModel
 
@@ -104,6 +105,12 @@ fun NewsContent(
                     onNavigateDetail(news)
                 }, modifier = Modifier.testTag(TestTag.newsItem)
             )
+//            NewsItemCard(
+//                news = it,
+//                onClickListener = { news ->
+//                    onNavigateDetail(news)
+//                }, modifier = Modifier.testTag(TestTag.newsItem)
+//            )
         }
     }
 }
