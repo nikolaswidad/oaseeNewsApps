@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomSheetScaffold
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.Button
@@ -39,6 +40,7 @@ import androidx.compose.ui.viewinterop.AndroidView
 import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import com.nikolaswidad.oasenews.ui.components.TopBar
+import com.nikolaswidad.oasenews.ui.theme.Typography
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -71,16 +73,17 @@ fun DetailScreen(
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(horizontal = 10.dp)
                         .height(300.dp),
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = "Bottom sheet",
-                        fontSize = 60.sp
+                        text = news.title.toString(),
+                        style = Typography.body2
                     )
                 }
             },
-            sheetBackgroundColor = Color.Green
+            sheetBackgroundColor = Color.LightGray
         ) {
 
             FloatingActionButton(onClick = {
