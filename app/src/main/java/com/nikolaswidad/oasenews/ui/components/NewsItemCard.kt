@@ -32,6 +32,9 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
+import com.nikolaswidad.oasenews.ui.theme.Shapes
+import com.nikolaswidad.oasenews.ui.theme.Typography
+import com.nikolaswidad.oasenews.utils.Utils
 
 @Composable
 fun NewsItemCard(
@@ -65,8 +68,7 @@ fun NewsItemCard(
                     Text(
                         text = news.title.toString(),
                         overflow = TextOverflow.Ellipsis,
-                        fontSize = 20.sp,
-                        fontWeight = FontWeight.Bold,
+                        style = Typography.subtitle1,
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(height = 100.dp)
@@ -79,21 +81,22 @@ fun NewsItemCard(
 
                     Text(
                         text = news.publishedAt.toString(),
+//                        text = Utils.formatDateToId(news.publishedAt.toString()),
 //                        text = timestamp,
                         maxLines = 1,
                         fontWeight = FontWeight.Light
                     )
 
                 }
-//                AsyncImage(
-//                    model = image,
-//                    contentDescription = null,
-//                    contentScale = ContentScale.Crop,
-//                    modifier = Modifier
-//                        .size(130.dp)
-//                        .clip(Shapes.small)
-//
-//                )
+                AsyncImage(
+                    model = news.urlToImage,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(130.dp)
+                        .clip(Shapes.small)
+
+                )
             }
             Spacer(
                 modifier = Modifier

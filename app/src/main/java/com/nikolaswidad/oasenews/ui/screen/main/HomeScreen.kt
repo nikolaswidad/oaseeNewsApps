@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
@@ -100,17 +101,19 @@ fun NewsContent(
         modifier = modifier.testTag(TestTag.newsList)
     ) {
         items(news, key = { it }) {
-            NewsItem(
-                news = it, onClickListener = { news ->
-                    onNavigateDetail(news)
-                }, modifier = Modifier.testTag(TestTag.newsItem)
-            )
-//            NewsItemCard(
-//                news = it,
-//                onClickListener = { news ->
+//            NewsItem(
+//                news = it, onClickListener = { news ->
 //                    onNavigateDetail(news)
 //                }, modifier = Modifier.testTag(TestTag.newsItem)
 //            )
+            NewsItemCard(
+                news = it,
+                onClickListener = { news ->
+                    onNavigateDetail(news)
+                }, modifier = Modifier.testTag(TestTag.newsItem)
+            )
+
+            Divider(thickness = 2.dp)
         }
     }
 }
