@@ -20,10 +20,13 @@ import androidx.navigation.compose.rememberNavController
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import com.nikolaswidad.oasenews.ui.components.BottomBar
 import com.nikolaswidad.oasenews.ui.navigation.Screen
+import com.nikolaswidad.oasenews.ui.navigation.SetupNavGraph
 import com.nikolaswidad.oasenews.ui.screen.detail.DetailScreen
 import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 
 class MainActivity : ComponentActivity() {
+    
+    lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -32,7 +35,9 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background
                 ) {
-                    NewsApp()
+//                    NewsApp()
+                    navController = rememberNavController()
+                    SetupNavGraph(navController = navController)
                 }
             }
         }

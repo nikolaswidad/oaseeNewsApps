@@ -48,6 +48,7 @@ android {
     }
 }
 
+
 dependencies {
 
     implementation "androidx.core:core-ktx:$core_version"
@@ -95,4 +96,5 @@ dependencies {
     androidTestImplementation "androidx.navigation:navigation-testing:$compose_navigation_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
 }

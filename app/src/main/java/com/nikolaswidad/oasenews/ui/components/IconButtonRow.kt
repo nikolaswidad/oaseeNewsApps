@@ -24,22 +24,21 @@ import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.ui.navigation.NavigationItem
 import com.nikolaswidad.oasenews.ui.navigation.Screen
 
-@Composable
-fun RowBar(
-    onSearch: (String) -> Unit,
-    navController: NavHostController,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        SearchBar(
-            onSearch = onSearch,
-            modifier = Modifier.weight(1f)
-        )
-        IconButtonRow(navController = navController)
-    }
-
-}
+//@Composable
+//fun RowBar(
+//    onSearch: (String) -> Unit,
+//) {
+//    Row(
+//        verticalAlignment = Alignment.CenterVertically
+//    ) {
+//        SearchBar(
+//            onSearch = onSearch,
+//            modifier = Modifier.weight(1f)
+//        )
+//        IconButtonRow(navController = navController)
+//    }
+//
+//}
 
 @Composable
 fun IconButtonRow(
@@ -73,11 +72,11 @@ fun IconButtonRow(
 //                        popUpTo(navController.graph.findStartDestination().id) {
 //                            saveState = true
 //                        }
-                        popUpTo(navController.graph.id) {
-                            saveState = true
-                        }
-                        restoreState = true
-                        launchSingleTop = true
+//                        popUpTo(navController.graph.id) {
+//                            saveState = true
+//                        }
+//                        restoreState = true
+//                        launchSingleTop = true
                     }
                 }
             ) {
@@ -95,14 +94,14 @@ fun IconButtonRow(
     }
 }
 
-@Preview
-@Composable
-fun RowBarPreview() {
-    RowBar(
-        onSearch = {},
-        navController = NavHostController(context = LocalContext.current)
-    )
-}
+//@Preview
+//@Composable
+//fun RowBarPreview() {
+//    RowBar(
+//        onSearch = {},
+//        navController = NavHostController(context = LocalContext.current)
+//    )
+//}
 
 
 
