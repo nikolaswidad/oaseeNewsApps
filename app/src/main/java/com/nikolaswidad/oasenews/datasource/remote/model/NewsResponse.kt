@@ -26,7 +26,7 @@ data class NewsResponse(
     @field:SerializedName("message")
     val message: String?,
 
-    @field:SerializedName("articles")
+    @field:SerializedName("data")
     val articles: List<NewsItem>?,
 
 ) : Parcelable

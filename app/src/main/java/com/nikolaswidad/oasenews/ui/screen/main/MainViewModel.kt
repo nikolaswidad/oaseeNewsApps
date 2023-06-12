@@ -53,9 +53,11 @@ class MainViewModel(
                         publishedAt = news.publishedAt,
                         author = news.author,
                         url = news.url,
-                        description = news.description,
+                        sentiment = news.sentiment,
+                        credibilityScore = news.credibilityScore,
+//                    description = news.description,
                         title = news.title,
-                        urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                         content = news.content,
                         id = news.id
                     )
@@ -79,9 +81,11 @@ class MainViewModel(
                     publishedAt = news.publishedAt,
                     author = news.author,
                     url = news.url,
-                    description = news.description,
+                    sentiment = news.sentiment,
+                    credibilityScore = news.credibilityScore,
+//                    description = news.description,
                     title = news.title,
-                    urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                     content = news.content,
                     id = news.id
                 )
@@ -96,9 +100,11 @@ class MainViewModel(
                     publishedAt = news.publishedAt,
                     author = news.author,
                     url = news.url,
-                    description = news.description,
+                    sentiment = news.sentiment,
+                    credibilityScore = news.credibilityScore,
+//                    description = news.description,
                     title = news.title,
-                    urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                     content = news.content,
                     id = news.id
                 )

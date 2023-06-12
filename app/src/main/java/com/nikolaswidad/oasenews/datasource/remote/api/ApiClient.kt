@@ -18,6 +18,6 @@ interface ApiClient {
 //    ): NewsResponse
     @GET("news")
     suspend fun loadNews(
-        @Query("news") news: String,
+        @Query("") news: String,
     ): NewsResponse
 }

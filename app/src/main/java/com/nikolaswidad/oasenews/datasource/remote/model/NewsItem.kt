@@ -46,9 +46,15 @@ data class NewsItem(
     @field:SerializedName("sentiment")
     val sentiment: String?,
 
+    @field:SerializedName("score")
+    val credibilityScore: Int?,
+
+    @field:SerializedName("fulltext")
+    val content: String?,
+
     @field:SerializedName("url")
     val url: String?,
 
     @field:SerializedName("summarize")
-    val content: String?
+    val summarize: String?
 ) : Parcelable

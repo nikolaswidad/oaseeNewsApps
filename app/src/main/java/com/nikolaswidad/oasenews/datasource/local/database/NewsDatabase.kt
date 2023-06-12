@@ -6,7 +6,7 @@ import com.nikolaswidad.oasenews.datasource.local.entity.NewsBookmarkEntity
 
 @Database(
     entities = [NewsBookmarkEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class NewsDatabase : RoomDatabase() {

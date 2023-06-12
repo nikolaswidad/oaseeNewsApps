@@ -23,6 +23,8 @@ class NewsRepository(
                         url = it.url,
 //                        description = it.description,
                         title = it.title,
+                        sentiment = it.sentiment,
+                        credibilityScore = it.credibilityScore,
 //                        urlToImage = it.urlToImage,
                         content = it.content,
                         id = Utils.formatDateToId(it.publishedAt)
