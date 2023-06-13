@@ -5,14 +5,12 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -21,27 +19,26 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.example.newsappcompose.datasource.Resource
+import com.nikolaswidad.oasenews.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import com.nikolaswidad.oasenews.ui.components.GenericState
-import com.nikolaswidad.oasenews.ui.components.NewsItem
 import com.nikolaswidad.oasenews.ui.components.SearchBar
 import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 import com.nikolaswidad.oasenews.utils.TestTag
 import com.nikolaswidad.oasenews.R
+//<<<<<<< HEAD
 import com.nikolaswidad.oasenews.ui.components.IconButtonRow
 //import com.nikolaswidad.oasenews.ui.components.IconButtonRow
+//=======
+//>>>>>>> ApiConfigure
 import com.nikolaswidad.oasenews.ui.components.NewsItemCard
 import com.nikolaswidad.oasenews.ui.components.ScrollToTopButton
-import com.nikolaswidad.oasenews.ui.navigation.Screen
 import kotlinx.coroutines.launch
 //import com.nikolaswidad.oasenews.ui.components.RowBar
 import org.koin.androidx.compose.koinViewModel
@@ -62,7 +59,7 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             SearchBar(onSearch = {
-                if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
+//                if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
             })
 //            Text(
 //                modifier = Modifier.clickable {

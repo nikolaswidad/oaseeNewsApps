@@ -1,6 +1,5 @@
 package com.nikolaswidad.oasenews.datasource
 
-import com.example.newsappcompose.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.local.LocalDataSource
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsBookmarkEntity
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
@@ -22,9 +21,11 @@ class NewsRepository(
                         publishedAt = it.publishedAt,
                         author = it.author,
                         url = it.url,
-                        description = it.description,
+//                        description = it.description,
                         title = it.title,
-                        urlToImage = it.urlToImage,
+                        sentiment = it.sentiment,
+                        credibilityScore = it.credibilityScore,
+//                        urlToImage = it.urlToImage,
                         content = it.content,
                         id = Utils.formatDateToId(it.publishedAt)
                     )
@@ -38,29 +39,29 @@ class NewsRepository(
         }.asFlow()
     }
 
-    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> {
-        return object : NetworkBoundResource<List<NewsEntity>, List<NewsItem>>() {
-            override suspend fun load(data: List<NewsItem>): Flow<List<NewsEntity>> {
-                return listOf(data.map {
-                    NewsEntity(
-                        publishedAt = it.publishedAt,
-                        author = it.author,
-                        url = it.url,
-                        description = it.description,
-                        title = it.title,
-                        urlToImage = it.urlToImage,
-                        content = it.content,
-                        id = Utils.formatDateToId(it.publishedAt)
-                    )
-                }).asFlow()
-            }
-
-            override suspend fun createCall(): Flow<ApiResponse<List<NewsItem>>> {
-                return remoteDataSource.searchNews(q)
-            }
-
-        }.asFlow()
-    }
+//    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> {
+//        return object : NetworkBoundResource<List<NewsEntity>, List<NewsItem>>() {
+//            override suspend fun load(data: List<NewsItem>): Flow<List<NewsEntity>> {
+//                return listOf(data.map {
+//                    NewsEntity(
+//                        publishedAt = it.publishedAt,
+//                        author = it.author,
+//                        url = it.url,
+////                        description = it.description,
+//                        title = it.title,
+////                        urlToImage = it.urlToImage,
+//                        content = it.content,
+//                        id = Utils.formatDateToId(it.publishedAt)
+//                    )
+//                }).asFlow()
+//            }
+//
+//            override suspend fun createCall(): Flow<ApiResponse<List<NewsItem>>> {
+//                return remoteDataSource.searchNews(q)
+//            }
+//
+//        }.asFlow()
+//    }
 
     override suspend fun loadNewsBookmarks(): Flow<List<NewsBookmarkEntity>> =
         localDataSource.loadNewsBookmarks()

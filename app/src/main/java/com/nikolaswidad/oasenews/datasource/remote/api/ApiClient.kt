@@ -5,15 +5,19 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiClient {
-    @GET("top-headlines")
+//    @GET("top-headlines")
+//    suspend fun loadNews(
+//        @Query("country") id: String,
+//        @Query("apiKey") apiKey: String
+//    ): NewsResponse
+//
+//    @GET("everything")
+//    suspend fun searchNews(
+//        @Query("q") q: String,
+//        @Query("apiKey") apiKey: String
+//    ): NewsResponse
+    @GET("news")
     suspend fun loadNews(
-        @Query("country") id: String,
-        @Query("apiKey") apiKey: String
-    ): NewsResponse
-
-    @GET("everything")
-    suspend fun searchNews(
-        @Query("q") q: String,
-        @Query("apiKey") apiKey: String
+        @Query("") news: String,
     ): NewsResponse
 }

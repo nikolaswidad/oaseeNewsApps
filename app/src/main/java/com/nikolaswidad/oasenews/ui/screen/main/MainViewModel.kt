@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsappcompose.datasource.Resource
+import com.nikolaswidad.oasenews.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsBookmarkEntity
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import com.nikolaswidad.oasenews.domain.NewsUseCase
@@ -35,15 +35,15 @@ class MainViewModel(
         }
     }
 
-    fun searchNews(q: String) {
-        EspressoIdlingResource.increment()
-        viewModelScope.launch {
-            useCase.searchNews(q).collect {
-                _news.value = it
-            }
-            EspressoIdlingResource.decrement()
-        }
-    }
+//    fun searchNews(q: String) {
+//        EspressoIdlingResource.increment()
+//        viewModelScope.launch {
+//            useCase.searchNews(q).collect {
+//                _news.value = it
+//            }
+//            EspressoIdlingResource.decrement()
+//        }
+//    }
 
     fun loadNewsBookmarks() {
         viewModelScope.launch {
@@ -53,9 +53,11 @@ class MainViewModel(
                         publishedAt = news.publishedAt,
                         author = news.author,
                         url = news.url,
-                        description = news.description,
+                        sentiment = news.sentiment,
+                        credibilityScore = news.credibilityScore,
+//                    description = news.description,
                         title = news.title,
-                        urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                         content = news.content,
                         id = news.id
                     )
@@ -79,9 +81,11 @@ class MainViewModel(
                     publishedAt = news.publishedAt,
                     author = news.author,
                     url = news.url,
-                    description = news.description,
+                    sentiment = news.sentiment,
+                    credibilityScore = news.credibilityScore,
+//                    description = news.description,
                     title = news.title,
-                    urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                     content = news.content,
                     id = news.id
                 )
@@ -96,9 +100,11 @@ class MainViewModel(
                     publishedAt = news.publishedAt,
                     author = news.author,
                     url = news.url,
-                    description = news.description,
+                    sentiment = news.sentiment,
+                    credibilityScore = news.credibilityScore,
+//                    description = news.description,
                     title = news.title,
-                    urlToImage = news.urlToImage,
+//                    urlToImage = news.urlToImage,
                     content = news.content,
                     id = news.id
                 )

@@ -34,15 +34,15 @@ fun NewsItem(
             .clip(Shapes.small)
             .clickable { onClickListener(news) }) {
         Column {
-            AsyncImage(
-                model = news.urlToImage,
-                contentDescription = news.title,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .align(CenterHorizontally)
-                    .fillMaxWidth()
-                    .padding(bottom = dimensionResource(id = R.dimen.all_small))
-            )
+//            AsyncImage(
+//                model = news.urlToImage,
+//                contentDescription = news.title,
+//                contentScale = ContentScale.Crop,
+//                modifier = Modifier
+//                    .align(CenterHorizontally)
+//                    .fillMaxWidth()
+//                    .padding(bottom = dimensionResource(id = R.dimen.all_small))
+//            )
             Text(
                 text = news.title ?: "",
                 style = Typography.subtitle1,
@@ -58,11 +58,23 @@ fun NewsItem(
     }
 }
 
-@Preview
-@Composable
-fun NewsItemPreview() {
-    NewsAppComposeTheme {
-        NewsItem(news = DataDummy.newsDummy, onClickListener = {})
-    }
-
-}
+//@Preview
+//@Composable
+//fun NewsItemPreview() {
+//    NewsAppComposeTheme {
+//
+//        val newsDummy = NewsEntity(
+//            "2022-11-29T10:30:49Z",
+//            "Bima Agustian",
+//            "https://cdn.antaranews.com/cache/730x487/2022/11/29/messageImage_1669692262067.jpg",
+//            "Kementerian Kesehatan (Kemenkes) mengemukakan sebanyak 12.533 anak di bawah usia 14 tahun diketahui positif terinfeksi HIV dalam kurun waktu 2010 sampai ...",
+//            "Kemenkes: 12.533 anak usia di bawah 14 tahun terinfeksi HIV - ANTARA Bangka Belitung",
+//            "https://babel.antaranews.com/berita/320173/kemenkes-12533-anak-usia-di-bawah-14-tahun-terinfeksi-hiv",
+//            "Jakarta (ANTARA) - Kementerian Kesehatan (Kemenkes) mengemukakan sebanyak 12.533 anak di bawah usia 14 tahun diketahui positif terinfeksi HIV dalam kurun waktu 2010 sampai September 2022.\r\n“HIV pada … [+2372 chars]",
+//            "29112022103049"
+//        )
+////        NewsItem(news = DataDummy.newsDummy, onClickListener = {})
+//        NewsItem(news = newsDummy, onClickListener = {})
+//    }
+//
+//}

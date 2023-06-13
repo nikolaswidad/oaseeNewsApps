@@ -1,7 +1,7 @@
 package com.nikolaswidad.oasenews.domain
 
 import com.nikolaswidad.oasenews.datasource.INewsRepository
-import com.example.newsappcompose.datasource.Resource
+import com.nikolaswidad.oasenews.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsBookmarkEntity
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import kotlinx.coroutines.flow.Flow
@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 class NewsInteractor(private val newsRepository: INewsRepository) : NewsUseCase {
     override fun loadNews(): Flow<Resource<List<NewsEntity>>> = newsRepository.loadNews()
 
-    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> =
-        newsRepository.searchNews(q)
+//    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> =
+//        newsRepository.searchNews(q)
 
     override suspend fun loadNewsBookmarks(): Flow<List<NewsBookmarkEntity>> =
         newsRepository.loadNewsBookmarks()

@@ -88,15 +88,14 @@ fun NewsItemCard(
                     )
 
                 }
-                AsyncImage(
-                    model = news.urlToImage,
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .size(130.dp)
-                        .clip(Shapes.small)
-
-                )
+//                AsyncImage(
+//                    model = news.urlToImage,
+//                    contentDescription = null,
+//                    contentScale = ContentScale.Crop,
+//                    modifier = Modifier
+//                        .size(130.dp)
+//                        .clip(Shapes.small)
+//                )
             }
             Spacer(
                 modifier = Modifier
@@ -194,25 +193,20 @@ fun NewsItemCard(
     }
 }
 
-//@Preview
-//@Composable
-//fun NewsItemCardPreview() {
-//    val news = NewsEntity(
-//        title = "NTT Optimistis Persentase Anak Stunting Turun di Bawah Target Nasional",
-//        timestamp = "2020-05-17T22:55:00.000Z",
-//        sentiment = "positive",
-//        url = "http://lestari.kompas.com/read/2023/05/17/225548386/ntt-optimistis-persentase-anak-stunting-turun-di-bawah-target-nasional",
-//        summarize = "Bila dibandingkan laporan anak stunting tersebut berbeda dengan Survei Status Gizi Indonesia SSGI 2022 yaitu sebesar 354 persen. Ruth menyampaikan data stunting yang digunakan oleh Pemerintah Provinsi NTT adalah ePPGBM karena didasarkan pada sensus bukan survei. Kepala Dinas Kesehatan Kependudukan dan Pencatatan Sipil Provinsi NTT Ruth D Laiskodat mengatakan persentase anak stunting di NTT hingga Februari 2023 adalah 157 persen atau 67.538 anak",
-//    )
-//
-//
-//    NewsItemCard(
-//        title = article.title.toString(),
-//        url = article.url.toString(),
-//        timestamp = article.timestamp.toString(),
-//        90,
-//        sentiment = article.sentiment.toString(),
-//        false,
-//        article = article
-//    )
-//}
+@Preview
+@Composable
+fun NewsItemCardPreview() {
+    val news = NewsEntity(
+        id = "1",
+        title = "NTT Optimistis Persentase Anak Stunting Turun di Bawah Target Nasional",
+        publishedAt = "2020-05-17T22:55:00.000Z",
+        sentiment = "positive",
+        credibilityScore = 97,
+        url = "http://lestari.kompas.com/read/2023/05/17/225548386/ntt-optimistis-persentase-anak-stunting-turun-di-bawah-target-nasional",
+    )
+
+
+    NewsItemCard(
+        news, {}
+    )
+}
