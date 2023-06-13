@@ -4,12 +4,16 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.BottomSheetScaffold
 import androidx.compose.material.BottomSheetValue
 import androidx.compose.material.Button
@@ -34,6 +38,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -70,33 +75,34 @@ fun DetailScreen(
             scaffoldState = scaffoldState,
 
             sheetContent = {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
-                        .height(300.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = news.title.toString(),
-                        style = Typography.body2
-                    )
-                }
+                MyBottomSheet()
+//                Box(
+//                    modifier = Modifier
+//                        .fillMaxWidth()
+//                        .padding(horizontal = 10.dp)
+//                        .height(300.dp),
+//                    contentAlignment = Alignment.Center
+//                ) {
+//                    Text(
+//                        text = news.title.toString(),
+//                        style = Typography.body2
+//                    )
+//                }
             },
-            sheetBackgroundColor = Color.LightGray
+            sheetBackgroundColor = Color.White
         ) {
 
-            FloatingActionButton(onClick = {
-                scope.launch {
-                    if (sheetState.isCollapsed) {
-                        sheetState.expand()
-                    } else {
-                        sheetState.collapse()
-                    }
-                }
-            }) {
-                Text(text = "Toggle Sheet")
-            }
+//            FloatingActionButton(onClick = {
+//                scope.launch {
+//                    if (sheetState.isCollapsed) {
+//                        sheetState.expand()
+//                    } else {
+//                        sheetState.collapse()
+//                    }
+//                }
+//            }) {
+//                Text(text = "Toggle Sheet")
+//            }
 
             Box(
                 modifier = Modifier
@@ -106,6 +112,31 @@ fun DetailScreen(
                 DetailContent(news)
             }
         }
+    }
+}
+
+//Design for sheet
+@Composable
+fun MyBottomSheet() {
+    Column(
+        modifier = Modifier
+            .heightIn(min = 150.dp, max = 800.dp)//This will set the max height
+            .fillMaxSize()//Do this to make sheet expandable
+            .background(Color.Black.copy(0.2f))
+            .padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(//Using this to create a kind of Icon that tells the user that the sheet is expandable
+            modifier = Modifier
+                .height(3.dp)
+                .width(70.dp)
+                .background(Color.White)
+        )
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(text = "Bottom Sheet")
     }
 }
 
@@ -131,3 +162,13 @@ fun DetailContent(
     }
 }
 
+@Preview
+@Composable
+fun DetailScreenPreview() {
+    val news = NewsEntity(
+        id = "1",
+        title = "Sample News",
+        // Provide other necessary properties for the news
+    )
+    DetailScreen(news = news, navigateBack = {})
+}

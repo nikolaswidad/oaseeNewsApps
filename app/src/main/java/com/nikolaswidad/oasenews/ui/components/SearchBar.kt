@@ -3,6 +3,7 @@ package com.nikolaswidad.oasenews.ui.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
@@ -58,10 +59,12 @@ fun SearchBar(
         modifier = modifier
             .padding(dimensionResource(id = R.dimen.all_medium))
 //            .fillMaxWidth()
-            .heightIn(min = dimensionResource(id = R.dimen.search_height))
-            .clip(Shapes.large)
+//            .heightIn(min = dimensionResource(id = R.dimen.search_height))
+//            .heightIn(min = 30.dp)
+            .heightIn(30.dp)
+            .clip(Shapes.medium)
 //            .background(color = Color.DarkGray, shape = Shapes.medium)
-            .border(width = 1.dp, color = Color.Gray, shape = Shapes.large)
+            .border(width = 1.dp, color = Color.Gray, shape = Shapes.medium)
             .testTag(TestTag.searchBar)
     )
 }
