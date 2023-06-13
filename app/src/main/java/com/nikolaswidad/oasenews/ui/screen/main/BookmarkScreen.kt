@@ -18,15 +18,16 @@ fun BookmarkScreen(
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = koinViewModel(),
     onNavigateDetail: (NewsEntity) -> Unit,
+    navigateBack: () -> Unit,
 ) {
     viewModel.loadNewsBookmarks()
     val news = viewModel.newsBookmarks
     Column {
         TopBar(title = stringResource(id = R.string.menu_bookmarks),
             news = null,
-            isBackVisible = false,
+            isBackVisible = true,
             isBookmarkVisible = false,
-            onBackClick = { })
+            onBackClick = { navigateBack() })
         Box(modifier = modifier.fillMaxSize()) {
             if (news.isEmpty()) {
                 GenericState(

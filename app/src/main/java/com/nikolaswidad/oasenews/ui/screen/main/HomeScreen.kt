@@ -38,6 +38,7 @@ import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 import com.nikolaswidad.oasenews.utils.TestTag
 import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.ui.components.IconButtonRow
+//import com.nikolaswidad.oasenews.ui.components.IconButtonRow
 import com.nikolaswidad.oasenews.ui.components.NewsItemCard
 import com.nikolaswidad.oasenews.ui.components.ScrollToTopButton
 import com.nikolaswidad.oasenews.ui.navigation.Screen
@@ -50,12 +51,13 @@ fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = koinViewModel(),
     onNavigateDetail: (NewsEntity) -> Unit,
-//    navController: NavController
+    navController: NavController
 ) {
 
     val state by viewModel.news.observeAsState()
 
     Column {
+
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -68,6 +70,9 @@ fun HomeScreen(
 //                },
 //                text = "home"
 //            )
+
+//            IconButtonRow(navController = onNavigateBookmark)
+            IconButtonRow(navController = navController)
         }
 //        RowBar(
 //            onSearch = {
@@ -169,6 +174,6 @@ fun NewsContent(
 @Composable
 fun PopularScreenPreview() {
     NewsAppComposeTheme {
-        HomeScreen(onNavigateDetail = {})
+        HomeScreen(onNavigateDetail = {}, navController = rememberNavController())
     }
 }

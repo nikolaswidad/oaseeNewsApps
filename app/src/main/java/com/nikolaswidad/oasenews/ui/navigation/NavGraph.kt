@@ -14,47 +14,48 @@ import com.nikolaswidad.oasenews.ui.screen.main.BookmarkScreen
 import com.nikolaswidad.oasenews.ui.screen.main.HomeScreen
 import com.nikolaswidad.oasenews.ui.screen.main.ProfileScreen
 
-@Composable
-fun SetupNavGraph(
-    navController : NavHostController
-) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.Home.route,
-    ) {
-        composable(Screen.Home.route) {
-            HomeScreen(
-                onNavigateDetail = {
-                navController.currentBackStackEntry?.savedStateHandle?.set(
-                    key = "news", value = it
-                )
-                navController.navigate(
-                    Screen.Detail.route
-                )
-                },
-            )
-        }
-        composable(Screen.Bookmarks.route) {
-            BookmarkScreen(onNavigateDetail = {
-                navController.currentBackStackEntry?.savedStateHandle?.set(
-                    key = "news", value = it
-                )
-                navController.navigate(
-                    Screen.Detail.route
-                )
-            })
-        }
-        composable(
-            Screen.Detail.route
-        ) {
-            val news =
-                navController.previousBackStackEntry?.savedStateHandle?.get<NewsEntity>("news")
-            if (news != null) {
-                DetailScreen(news = news, navigateBack = { navController.navigateUp() })
-            }
-        }
-        composable(Screen.Profile.route) {
-            ProfileScreen()
-        }
-    }
-}
+//@Composable
+//fun SetupNavGraph(
+//    navController : NavHostController
+//) {
+//    NavHost(
+//        navController = navController,
+//        startDestination = Screen.Home.route,
+//    ) {
+//        composable(Screen.Home.route) {
+//            HomeScreen(
+//                onNavigateDetail = {
+//                navController.currentBackStackEntry?.savedStateHandle?.set(
+//                    key = "news", value = it
+//                )
+//                navController.navigate(
+//                    Screen.Detail.route
+//                )
+//                },
+//                navController = navController
+//            )
+//        }
+//        composable(Screen.Bookmarks.route) {
+//            BookmarkScreen(onNavigateDetail = {
+//                navController.currentBackStackEntry?.savedStateHandle?.set(
+//                    key = "news", value = it
+//                )
+//                navController.navigate(
+//                    Screen.Detail.route
+//                )
+//            })
+//        }
+//        composable(
+//            Screen.Detail.route
+//        ) {
+//            val news =
+//                navController.previousBackStackEntry?.savedStateHandle?.get<NewsEntity>("news")
+//            if (news != null) {
+//                DetailScreen(news = news, navigateBack = { navController.navigateUp() })
+//            }
+//        }
+//        composable(Screen.Profile.route) {
+//            ProfileScreen()
+//        }
+//    }
+//}

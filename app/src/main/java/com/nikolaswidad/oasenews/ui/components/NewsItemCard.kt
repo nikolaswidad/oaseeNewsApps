@@ -114,9 +114,9 @@ fun NewsItemCard(
                 ) {
                     Image(
                         painter = when (news.sentiment) {
-                            "positive" -> painterResource(R.drawable.ic_sentiment_negative)
+                            "positive" -> painterResource(R.drawable.ic_sentiment_positive)
                             "neutral" -> painterResource(R.drawable.ic_sentiment_neutral)
-                            else -> painterResource(R.drawable.ic_sentiment_positive)
+                            else -> painterResource(R.drawable.ic_sentiment_negative)
                         },
                         contentDescription = null,
                         modifier = Modifier
