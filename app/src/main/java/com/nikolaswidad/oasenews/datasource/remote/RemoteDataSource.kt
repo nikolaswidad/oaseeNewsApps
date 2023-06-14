@@ -13,7 +13,7 @@ class RemoteDataSource(private val apiClient: ApiClient) {
     suspend fun loadNews() =
         flow {
             try {
-                val response = apiClient.loadNews("news").articles
+                val response = apiClient.loadNews().articles
                 if (response.isNullOrEmpty()) {
                     emit(ApiResponse.Empty)
                 } else {

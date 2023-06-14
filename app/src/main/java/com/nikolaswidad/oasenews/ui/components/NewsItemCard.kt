@@ -20,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -102,83 +103,92 @@ fun NewsItemCard(
                     .height(height = 8.dp)
             )
             // Kolom Fitur
-            Row(
-                modifier = modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                // Row Sentiment Start
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Image(
-                        painter = when (news.sentiment) {
-                            "positive" -> painterResource(R.drawable.ic_sentiment_positive)
-                            "neutral" -> painterResource(R.drawable.ic_sentiment_neutral)
-                            else -> painterResource(R.drawable.ic_sentiment_negative)
-                        },
-                        contentDescription = null,
-                        modifier = Modifier
+            RowFeatures(news)
+        }
+    }
+}
 
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .width(width = 2.dp)
-                    )
-                    Text(
-                        text = stringResource(R.string.tv_sentiment),
-                        fontSize = 12.sp,
-                        fontWeight = FontWeight.SemiBold,
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .width(width = 2.dp)
-                    )
-                    Icon(
-                        painter = painterResource(R.drawable.ic_info),
-                        contentDescription = "info",
-                        modifier = Modifier
-                            .size(size = 12.dp)
-                    )
-                }
-                // Row Sentiment End
 
-                // Row Verified Start
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Image(
-                        //                    painter = painterResource(R.drawable.ic_credibility_verified),
+@Composable
+fun RowFeatures(news: NewsEntity) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        // Row Sentiment Start
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painter = when (news.sentiment) {
+                    "positive" -> painterResource(R.drawable.ic_sentiment_positive)
+                    "neutral" -> painterResource(R.drawable.ic_sentiment_neutral)
+                    else -> painterResource(R.drawable.ic_sentiment_negative)
+                },
+                contentDescription = null,
+                modifier = Modifier
 
-                        painter = if (news.credibilityScore == 0)
-                            painterResource(R.drawable.ic_credibility_warning)
-                        else
-                            painterResource(R.drawable.ic_credibility_verified),
-                        contentDescription = null
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .width(width = 2.dp)
-                    )
-                    Text(
-                        text = "${news.credibilityScore}%",
-                        fontSize = 17.sp,
-                        fontWeight = FontWeight.Bold
-                    )
-                    Spacer(
-                        modifier = Modifier
-                            .width(width = 2.dp)
-                    )
-                    Column {
-                        Text(
-                            text = stringResource(R.string.tv_accurate_score),
-                            fontSize = 7.sp,
-                            lineHeight = 8.sp
-                        )
-                    }
-                }
-                // Row Verified End
+            )
+            Spacer(
+                modifier = Modifier
+                    .width(width = 2.dp)
+            )
+            Text(
+                text = stringResource(R.string.tv_sentiment),
+                fontSize = 12.sp,
+                fontWeight = FontWeight.SemiBold,
+            )
+            Spacer(
+                modifier = Modifier
+                    .width(width = 2.dp)
+            )
+            Icon(
+                painter = painterResource(R.drawable.ic_info),
+                contentDescription = "info",
+                modifier = Modifier
+                    .size(size = 12.dp)
+            )
+        }
+        // Row Sentiment End
+
+        // Row Verified Start
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                //                    painter = painterResource(R.drawable.ic_credibility_verified),
+
+                painter = if (news.credibilityScore!! <= 60)
+                    painterResource(R.drawable.ic_credibility_warning)
+                else
+                    painterResource(R.drawable.ic_credibility_verified),
+                contentDescription = null
+            )
+            Spacer(
+                modifier = Modifier
+                    .width(width = 2.dp)
+            )
+            Text(
+                text = "${news.credibilityScore}%",
+                fontSize = 17.sp,
+                fontWeight = FontWeight.Bold,
+                color = if (news.credibilityScore!! <= 60) Color(0xffffc107) else Color(0xff007bff)
+            )
+            Spacer(
+                modifier = Modifier
+                    .width(width = 2.dp)
+            )
+            Column {
+                Text(
+                    text = stringResource(R.string.tv_accurate_score),
+                    fontSize = 7.sp,
+                    lineHeight = 8.sp
+                )
+            }
+        }
+        // Row Verified End
 
 //                Image(
 //                    painter = if (bookmarked)
@@ -188,10 +198,9 @@ fun NewsItemCard(
 //                    contentDescription = null
 //                )
 
-            }
-        }
     }
 }
+
 
 @Preview
 @Composable

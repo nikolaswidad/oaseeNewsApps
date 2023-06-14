@@ -51,7 +51,8 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://backend-capstone-service-jtlt6za6ta-as.a.run.app/")
+//            .baseUrl("https://backend-capstone-service-jtlt6za6ta-as.a.run.app/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()
