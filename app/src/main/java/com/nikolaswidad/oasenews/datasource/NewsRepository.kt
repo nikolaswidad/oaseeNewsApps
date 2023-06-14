@@ -26,7 +26,8 @@ class NewsRepository(
                         sentiment = it.sentiment,
                         credibilityScore = it.credibilityScore,
 //                        urlToImage = it.urlToImage,
-                        content = it.content,
+//                        content = it.content,
+                        summarize = it.summarize,
                         id = Utils.formatDateToId(it.publishedAt)
                     )
                 }).asFlow()

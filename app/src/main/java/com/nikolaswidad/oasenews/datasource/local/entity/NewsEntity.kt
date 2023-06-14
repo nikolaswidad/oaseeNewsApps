@@ -16,4 +16,5 @@ data class NewsEntity(
     val sentiment: String? = null,
     val credibilityScore: Int? = null,
     val content: String? = null,
+    val summarize: String? = null,
 ) : Parcelable

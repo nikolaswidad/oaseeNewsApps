@@ -33,7 +33,10 @@ class NewsBookmarkEntity(
 
     @ColumnInfo(name = "credibilityScore")
     val credibilityScore: Int? = null,
+//
+//    @ColumnInfo(name = "content")
+//    val content: String? = null,
 
-    @ColumnInfo(name = "content")
-    val content: String? = null,
+    @ColumnInfo(name = "summarize")
+    val summarize: String? = null,
 ) : Parcelable

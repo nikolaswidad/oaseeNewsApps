@@ -58,7 +58,8 @@ class MainViewModel(
 //                    description = news.description,
                         title = news.title,
 //                    urlToImage = news.urlToImage,
-                        content = news.content,
+//                        content = news.content,
+                        summarize = news.summarize,
                         id = news.id
                     )
                 }
@@ -86,7 +87,8 @@ class MainViewModel(
 //                    description = news.description,
                     title = news.title,
 //                    urlToImage = news.urlToImage,
-                    content = news.content,
+//                    content = news.content,
+                    summarize = news.summarize,
                     id = news.id
                 )
             )
@@ -105,7 +107,8 @@ class MainViewModel(
 //                    description = news.description,
                     title = news.title,
 //                    urlToImage = news.urlToImage,
-                    content = news.content,
+//                    content = news.content,
+                    summarize = news.summarize,
                     id = news.id
                 )
             )

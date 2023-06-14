@@ -100,7 +100,7 @@ fun DetailScreen(
 //                    )
 //                }
             },
-            sheetBackgroundColor = Color.White
+            sheetBackgroundColor = Color.White,
         ) {
 
 //            FloatingActionButton(onClick = {
@@ -126,7 +126,10 @@ fun DetailScreen(
     }
 }
 
-//Dragable
+
+
+
+//Dragable belum berhasil sticky header
 @Composable
 fun MyBottomSheet(
     news: NewsEntity
@@ -139,7 +142,7 @@ fun MyBottomSheet(
             .fillMaxSize()
             .background(Color.White.copy(0.2f))
             .padding(20.dp)
-            .heightIn(min = 150.dp, max = 780.dp),
+            .heightIn(min = 150.dp, max = 500.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(
@@ -165,7 +168,7 @@ fun MyBottomSheet(
                 )
         ){
             Text(
-                text = news.content.toString(),
+                text = news.summarize.toString(),
                 style = Typography.body2
             )
         }
