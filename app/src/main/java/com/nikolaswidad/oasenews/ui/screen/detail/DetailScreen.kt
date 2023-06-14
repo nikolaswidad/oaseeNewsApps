@@ -142,7 +142,8 @@ fun MyBottomSheet(
             .fillMaxSize()
             .background(Color.White.copy(0.2f))
             .padding(20.dp)
-            .heightIn(min = 150.dp, max = 500.dp),
+//            .heightIn(min = 150.dp, max = 500.dp)
+            .height(500.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(

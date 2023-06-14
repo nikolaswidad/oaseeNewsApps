@@ -160,7 +160,7 @@ fun RowFeatures(news: NewsEntity) {
             Image(
                 //                    painter = painterResource(R.drawable.ic_credibility_verified),
 
-                painter = if (news.credibilityScore!! <= 80)
+                painter = if (news.credibilityScore!! < 80)
                     painterResource(R.drawable.ic_credibility_warning)
                 else
                     painterResource(R.drawable.ic_credibility_verified),
@@ -174,7 +174,7 @@ fun RowFeatures(news: NewsEntity) {
                 text = "${news.credibilityScore}%",
                 fontSize = 17.sp,
                 fontWeight = FontWeight.Bold,
-                color = if (news.credibilityScore!! <= 80) Color(0xffffc107) else Color(0xff007bff)
+                color = if (news.credibilityScore!! < 80) Color(0xffffc107) else Color(0xff007bff)
             )
             Spacer(
                 modifier = Modifier
