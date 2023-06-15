@@ -59,7 +59,8 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
             SearchBar(onSearch = {
-//                if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
+//                if (it.isNotEmpty()) viewModel.searchNews() else viewModel.loadNews()
+                if (it.isNotEmpty()) viewModel.searchNews() else viewModel.loadNews()
             })
 //            Text(
 //                modifier = Modifier.clickable {

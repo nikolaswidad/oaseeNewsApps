@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.Flow
 class NewsInteractor(private val newsRepository: INewsRepository) : NewsUseCase {
     override fun loadNews(): Flow<Resource<List<NewsEntity>>> = newsRepository.loadNews()
 
-//    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> =
-//        newsRepository.searchNews(q)
+    override fun searchNews(): Flow<Resource<List<NewsEntity>>> =
+        newsRepository.searchNews()
 
     override suspend fun loadNewsBookmarks(): Flow<List<NewsBookmarkEntity>> =
         newsRepository.loadNewsBookmarks()

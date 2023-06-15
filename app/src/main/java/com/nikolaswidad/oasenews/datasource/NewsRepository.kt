@@ -40,7 +40,7 @@ class NewsRepository(
         }.asFlow()
     }
 
-//    override fun searchNews(q: String): Flow<Resource<List<NewsEntity>>> {
+//    override fun searchNews(title: String): Flow<Resource<List<NewsEntity>>> {
 //        return object : NetworkBoundResource<List<NewsEntity>, List<NewsItem>>() {
 //            override suspend fun load(data: List<NewsItem>): Flow<List<NewsEntity>> {
 //                return listOf(data.map {
@@ -58,11 +58,34 @@ class NewsRepository(
 //            }
 //
 //            override suspend fun createCall(): Flow<ApiResponse<List<NewsItem>>> {
-//                return remoteDataSource.searchNews(q)
+//                return remoteDataSource.searchNews(title)
 //            }
 //
 //        }.asFlow()
 //    }
+    override fun searchNews(): Flow<Resource<List<NewsEntity>>> {
+        return object : NetworkBoundResource<List<NewsEntity>, List<NewsItem>>() {
+            override suspend fun load(data: List<NewsItem>): Flow<List<NewsEntity>> {
+                return listOf(data.map {
+                    NewsEntity(
+                        publishedAt = it.publishedAt,
+                        author = it.author,
+                        url = it.url,
+//                        description = it.description,
+                        title = it.title,
+//                        urlToImage = it.urlToImage,
+                        content = it.content,
+                        id = Utils.formatDateToId(it.publishedAt)
+                    )
+                }).asFlow()
+            }
+
+            override suspend fun createCall(): Flow<ApiResponse<List<NewsItem>>> {
+                return remoteDataSource.searchNews()
+            }
+
+        }.asFlow()
+    }
 
     override suspend fun loadNewsBookmarks(): Flow<List<NewsBookmarkEntity>> =
         localDataSource.loadNewsBookmarks()

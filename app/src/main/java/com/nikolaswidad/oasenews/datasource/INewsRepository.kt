@@ -6,7 +6,8 @@ import kotlinx.coroutines.flow.Flow
 
 interface INewsRepository {
     fun loadNews(): Flow<Resource<List<NewsEntity>>>
-//    fun searchNews(q: String): Flow<Resource<List<NewsEntity>>>
+//    fun searchNews(title: String): Flow<Resource<List<NewsEntity>>>
+    fun searchNews(): Flow<Resource<List<NewsEntity>>>
 
     suspend fun loadNewsBookmarks(): Flow<List<NewsBookmarkEntity>>
     suspend fun checkBookmark(id: String): Flow<Boolean>
