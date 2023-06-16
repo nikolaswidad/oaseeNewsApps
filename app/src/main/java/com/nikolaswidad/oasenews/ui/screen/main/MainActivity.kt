@@ -86,7 +86,18 @@ fun SetupNavGraph(
             val news =
                 navController.previousBackStackEntry?.savedStateHandle?.get<NewsEntity>("news")
             if (news != null) {
-                DetailScreen(news = news, navigateBack = { navController.navigateUp() })
+                DetailScreen(
+                    news = news,
+                    navigateBack = { navController.navigateUp() },
+                    onNavigateDetail = {
+                        navController.currentBackStackEntry?.savedStateHandle?.set(
+                            key = "news", value = it
+                        )
+                        navController.navigate(
+                            Screen.Detail.route
+                        )
+                    },
+                )
             }
         }
         composable(

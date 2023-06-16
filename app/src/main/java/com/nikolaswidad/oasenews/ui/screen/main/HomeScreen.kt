@@ -133,11 +133,6 @@ fun NewsContent(
             modifier = modifier.testTag(TestTag.newsList)
         ) {
             items(news, key = { it }) {
-    //            NewsItem(
-    //                news = it, onClickListener = { news ->
-    //                    onNavigateDetail(news)
-    //                }, modifier = Modifier.testTag(TestTag.newsItem)
-    //            )
                 NewsItemCard(
                     news = it,
                     onClickListener = { news ->
