@@ -7,6 +7,7 @@ import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -17,6 +18,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -24,26 +26,25 @@ import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.ui.navigation.NavigationItem
 import com.nikolaswidad.oasenews.ui.navigation.Screen
 
-@Composable
-fun RowBar(
-    onSearch: (String) -> Unit,
-    navController: NavHostController,
-) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        SearchBar(
-            onSearch = onSearch,
-            modifier = Modifier.weight(1f)
-        )
-        IconButtonRow(navController = navController)
-    }
-
-}
+//@Composable
+//fun RowBar(
+//    onSearch: (String) -> Unit,
+//) {
+//    Row(
+//        verticalAlignment = Alignment.CenterVertically
+//    ) {
+//        SearchBar(
+//            onSearch = onSearch,
+//            modifier = Modifier.weight(1f)
+//        )
+//        IconButtonRow(navController = navController)
+//    }
+//
+//}
 
 @Composable
 fun IconButtonRow(
-    navController: NavHostController,
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -54,6 +55,11 @@ fun IconButtonRow(
         val currentRoute = navBackStackEntry?.destination?.route
 
         val navigationItems = listOf(
+//            NavigationItem(
+//                title = stringResource(R.string.menu_bookmarks),
+//                icon = Icons.Default.Home,
+//                screen = Screen.Home
+//            ),
             NavigationItem(
                 title = stringResource(R.string.menu_bookmarks),
                 icon = ImageVector.vectorResource(id = R.drawable.ic_bookmarks),
@@ -95,14 +101,14 @@ fun IconButtonRow(
     }
 }
 
-@Preview
-@Composable
-fun RowBarPreview() {
-    RowBar(
-        onSearch = {},
-        navController = NavHostController(context = LocalContext.current)
-    )
-}
+//@Preview
+//@Composable
+//fun RowBarPreview() {
+//    RowBar(
+//        onSearch = {},
+//        navController = NavHostController(context = LocalContext.current)
+//    )
+//}
 
 
 

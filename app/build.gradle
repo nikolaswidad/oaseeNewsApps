@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId "com.nikolaswidad.oasenews"
-        minSdk 24
+        minSdk 26
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -47,6 +47,7 @@ android {
         }
     }
 }
+
 
 dependencies {
 
@@ -95,4 +96,5 @@ dependencies {
     androidTestImplementation "androidx.navigation:navigation-testing:$compose_navigation_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+
 }

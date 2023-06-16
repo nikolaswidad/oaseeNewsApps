@@ -19,20 +19,24 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 import com.nikolaswidad.oasenews.R
 import com.nikolaswidad.oasenews.ui.components.TopBar
 import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 import com.nikolaswidad.oasenews.ui.theme.Typography
 
 @Composable
-fun ProfileScreen(modifier: Modifier = Modifier) {
+fun ProfileScreen(
+    modifier: Modifier = Modifier,
+    navigateBack: () -> Unit,
+) {
     Column {
         TopBar(
             title = stringResource(id = R.string.all_profile),
             news = null,
-            isBackVisible = false,
+            isBackVisible = true,
             isBookmarkVisible = false,
-            onBackClick = { })
+            onBackClick = { navigateBack() })
         Column(
             verticalArrangement = Arrangement.Center,
             modifier = modifier
@@ -80,6 +84,6 @@ fun ProfileScreen(modifier: Modifier = Modifier) {
 @Composable
 fun ProfileScreenPreview() {
     NewsAppComposeTheme {
-        ProfileScreen()
+        ProfileScreen(navigateBack = {  })
     }
 }
