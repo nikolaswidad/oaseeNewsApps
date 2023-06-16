@@ -26,6 +26,9 @@ data class NewsResponse(
     @field:SerializedName("message")
     val message: String?,
 
+    @field:SerializedName("totalResult")
+    val totalResult: Int?,
+
     @field:SerializedName("data")
     val articles: List<NewsItem>?,
 

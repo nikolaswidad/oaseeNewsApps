@@ -35,25 +35,25 @@ class MainViewModel(
         }
     }
 
-//    fun searchNews(title: String) {
-//        EspressoIdlingResource.increment()
-//        viewModelScope.launch {
-//            useCase.searchNews(title).collect {
-//                _news.value = it
-//            }
-//            EspressoIdlingResource.decrement()
-//        }
-//    }
-
-    fun searchNews() {
+    fun searchNews(title: String) {
         EspressoIdlingResource.increment()
         viewModelScope.launch {
-            useCase.searchNews().collect {
+            useCase.searchNews(title).collect {
                 _news.value = it
             }
             EspressoIdlingResource.decrement()
         }
     }
+
+//    fun searchNews() {
+//        EspressoIdlingResource.increment()
+//        viewModelScope.launch {
+//            useCase.searchNews().collect {
+//                _news.value = it
+//            }
+//            EspressoIdlingResource.decrement()
+//        }
+//    }
 
     fun loadNewsBookmarks() {
         viewModelScope.launch {

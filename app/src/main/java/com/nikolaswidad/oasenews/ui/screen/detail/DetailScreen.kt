@@ -130,91 +130,91 @@ fun DetailScreen(
 
 
 //Dragable belum berhasil sticky header
-@Composable
-fun MyBottomSheet(
-    news: NewsEntity
-) {
-    var offsetY by remember { mutableStateOf(0f) }
-    val density = LocalDensity.current
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White.copy(0.2f))
-            .padding(20.dp)
-//            .heightIn(min = 150.dp, max = 500.dp)
-            .height(500.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Spacer(
-            modifier = Modifier
-                .height(3.dp)
-                .width(70.dp)
-                .background(Color.DarkGray, shape = Shapes.large)
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        Text(
-            text = "Summary",
-            style = Typography.subtitle2
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-        Box(
-            modifier = Modifier
-                .offset { IntOffset(0, offsetY.roundToInt()) }
-                .draggable(
-                    orientation = Orientation.Vertical,
-                    state = rememberDraggableState { deltaY ->
-                        offsetY += with(density) { deltaY / density.density }
-                    }
-                )
-        ){
-            Text(
-                text = news.summarize.toString(),
-                style = Typography.body2
-            )
-        }
-    }
-}
-
-
-//Design for sheet
 //@Composable
 //fun MyBottomSheet(
 //    news: NewsEntity
 //) {
+//    var offsetY by remember { mutableStateOf(0f) }
+//    val density = LocalDensity.current
+//
 //    Column(
 //        modifier = Modifier
-//            .heightIn(min = 150.dp, max = 780.dp)//This will set the max height
-//            .fillMaxSize()//Do this to make sheet expandable
-////            .background(Color.Black.copy(0.2f))
+//            .fillMaxSize()
 //            .background(Color.White.copy(0.2f))
-//            .padding(20.dp),
+//            .padding(20.dp)
+////            .heightIn(min = 150.dp, max = 500.dp)
+//            .height(500.dp),
 //        horizontalAlignment = Alignment.CenterHorizontally
 //    ) {
-//        Spacer(//Using this to create a kind of Icon that tells the user that the sheet is expandable
+//        Spacer(
 //            modifier = Modifier
 //                .height(3.dp)
 //                .width(70.dp)
 //                .background(Color.DarkGray, shape = Shapes.large)
 //        )
-//        Spacer(//Another spacer to add a space
-//            modifier = Modifier
-//                .height(20.dp)
-//        )
+//        Spacer(modifier = Modifier.height(20.dp))
 //        Text(
 //            text = "Summary",
 //            style = Typography.subtitle2
 //        )
-//        Spacer(//Another spacer to add a space
+//        Spacer(modifier = Modifier.height(20.dp))
+//        Box(
 //            modifier = Modifier
-//                .height(20.dp)
-//        )
-//        Text(
-//            text = news.content.toString(),
-//            style = Typography.body2
-//        )
+//                .offset { IntOffset(0, offsetY.roundToInt()) }
+//                .draggable(
+//                    orientation = Orientation.Vertical,
+//                    state = rememberDraggableState { deltaY ->
+//                        offsetY += with(density) { deltaY / density.density }
+//                    }
+//                )
+//        ){
+//            Text(
+//                text = news.summarize.toString(),
+//                style = Typography.body2
+//            )
+//        }
 //    }
 //}
+
+
+//Design for sheet
+@Composable
+fun MyBottomSheet(
+    news: NewsEntity
+) {
+    Column(
+        modifier = Modifier
+            .heightIn(min = 150.dp, max = 780.dp)//This will set the max height
+            .fillMaxSize()//Do this to make sheet expandable
+//            .background(Color.Black.copy(0.2f))
+            .background(Color.White.copy(0.2f))
+            .padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Spacer(//Using this to create a kind of Icon that tells the user that the sheet is expandable
+            modifier = Modifier
+                .height(3.dp)
+                .width(70.dp)
+                .background(Color.DarkGray, shape = Shapes.large)
+        )
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(
+            text = "Summary",
+            style = Typography.subtitle2
+        )
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(
+            text = news.summarize.toString(),
+            style = Typography.body2
+        )
+    }
+}
 
 @Composable
 fun DetailContent(

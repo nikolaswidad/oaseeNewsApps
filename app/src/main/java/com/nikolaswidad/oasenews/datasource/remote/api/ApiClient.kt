@@ -11,16 +11,17 @@ interface ApiClient {
 //        @Query("apiKey") apiKey: String
 //    ): NewsResponse
 //
-//    @GET("news/search")
+    @GET("news/search")
+    suspend fun searchNews(
+        @Query("title") title: String,
+//        @Query("apiKey") apiKey: String
+    ): NewsResponse
+
+//    @GET("news/keyword")
 //    suspend fun searchNews(
 //        @Query("title") search: String,
 ////        @Query("apiKey") apiKey: String
 //    ): NewsResponse
-    @GET("news/keyword")
-    suspend fun searchNews(
-//        @Query("title") search: String,
-//        @Query("apiKey") apiKey: String
-    ): NewsResponse
 
     @GET("news")
     suspend fun loadNews(

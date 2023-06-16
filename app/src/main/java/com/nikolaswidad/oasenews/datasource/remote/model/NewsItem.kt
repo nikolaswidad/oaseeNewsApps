@@ -49,9 +49,6 @@ data class NewsItem(
     @field:SerializedName("score")
     val credibilityScore: Int?,
 
-    @field:SerializedName("fulltext")
-    val content: String?,
-
     @field:SerializedName("url")
     val url: String?,
 

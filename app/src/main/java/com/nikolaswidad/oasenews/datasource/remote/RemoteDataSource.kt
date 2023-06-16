@@ -24,11 +24,11 @@ class RemoteDataSource(private val apiClient: ApiClient) {
             }
         }.flowOn(Dispatchers.IO)
 
-    suspend fun searchNews() =
+    suspend fun searchNews(title: String) =
         flow {
             try {
 //                val response = apiClient.searchNews(q, API_KEY).articles
-                val response = apiClient.searchNews().articles
+                val response = apiClient.searchNews(title).articles
                 if (response.isNullOrEmpty()) {
                     emit(ApiResponse.Empty)
                 } else {
