@@ -82,8 +82,6 @@ fun NewsItemCard(
 
                     Text(
                         text = news.publishedAt.toString(),
-//                        text = Utils.formatDateToId(news.publishedAt.toString()),
-//                        text = timestamp,
                         maxLines = 1,
                         fontWeight = FontWeight.Light
                     )
@@ -102,6 +100,7 @@ fun NewsItemCard(
                 modifier = Modifier
                     .height(height = 8.dp)
             )
+<<<<<<< Updated upstream
             // Kolom Fitur
             RowFeatures(news)
         }
@@ -198,6 +197,11 @@ fun RowFeatures(news: NewsEntity) {
 //                    contentDescription = null
 //                )
 
+=======
+
+
+        }
+>>>>>>> Stashed changes
     }
 }
 

@@ -103,18 +103,6 @@ fun DetailScreen(
             sheetBackgroundColor = Color.White,
         ) {
 
-//            FloatingActionButton(onClick = {
-//                scope.launch {
-//                    if (sheetState.isCollapsed) {
-//                        sheetState.expand()
-//                    } else {
-//                        sheetState.collapse()
-//                    }
-//                }
-//            }) {
-//                Text(text = "Toggle Sheet")
-//            }
-
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -186,7 +174,6 @@ fun MyBottomSheet(
         modifier = Modifier
             .heightIn(min = 150.dp, max = 780.dp)//This will set the max height
             .fillMaxSize()//Do this to make sheet expandable
-//            .background(Color.Black.copy(0.2f))
             .background(Color.White.copy(0.2f))
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -196,7 +183,9 @@ fun MyBottomSheet(
                 .height(3.dp)
                 .width(70.dp)
                 .background(Color.DarkGray, shape = Shapes.large)
+                .background(Color.Black)
         )
+
         Spacer(//Another spacer to add a space
             modifier = Modifier
                 .height(20.dp)
@@ -205,6 +194,7 @@ fun MyBottomSheet(
             text = "Summary",
             style = Typography.subtitle2
         )
+        Text(text = "Author")
         Spacer(//Another spacer to add a space
             modifier = Modifier
                 .height(20.dp)
@@ -213,6 +203,18 @@ fun MyBottomSheet(
             text = news.summarize.toString(),
             style = Typography.body2
         )
+        Text(text = news.author.toString())
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+
+        Text(text = "Description")
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(text = news.de)
     }
 }
 

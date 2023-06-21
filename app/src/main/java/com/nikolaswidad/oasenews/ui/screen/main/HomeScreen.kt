@@ -72,12 +72,6 @@ fun HomeScreen(
 //            IconButtonRow(navController = onNavigateBookmark)
             IconButtonRow(navController = navController)
         }
-//        RowBar(
-//            onSearch = {
-//                if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
-//            },
-//            navController = NavHostController(context = LocalContext.current)
-//        )
 
         Box(modifier = modifier.fillMaxSize()) {
             when (state) {
