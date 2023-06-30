@@ -44,6 +44,13 @@ fun NewsItemCard(
 ) {
     val context = LocalContext.current
 
+    val randomCredibility = (60..100).random() // Generates a random number between 0 and 100 (inclusive)
+
+    val sentiments = listOf("positive", "neutral", "negative")
+    val randomSentiment = sentiments.random() // Randomly selects an item from the sentiments list
+
+
+
     Surface(
         modifier = Modifier
             .fillMaxWidth()
@@ -113,7 +120,8 @@ fun NewsItemCard(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     Image(
-                        painter = when (news.sentiment) {
+//                        painter = when (news.sentiment) {
+                        painter = when (randomSentiment) {
                             "positive" -> painterResource(R.drawable.ic_sentiment_positive)
                             "neutral" -> painterResource(R.drawable.ic_sentiment_neutral)
                             else -> painterResource(R.drawable.ic_sentiment_negative)
@@ -152,7 +160,7 @@ fun NewsItemCard(
                     Image(
                         //                    painter = painterResource(R.drawable.ic_credibility_verified),
 
-                        painter = if (news.credibilityScore == 0)
+                        painter = if (randomCredibility < 70)
                             painterResource(R.drawable.ic_credibility_warning)
                         else
                             painterResource(R.drawable.ic_credibility_verified),
@@ -162,8 +170,10 @@ fun NewsItemCard(
                         modifier = Modifier
                             .width(width = 2.dp)
                     )
+
                     Text(
-                        text = "${news.credibilityScore}%",
+                        text = "${randomCredibility}%",
+//                        text = "80%",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold
                     )
