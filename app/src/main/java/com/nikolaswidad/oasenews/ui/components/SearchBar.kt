@@ -58,12 +58,8 @@ fun SearchBar(
         },
         modifier = modifier
             .padding(dimensionResource(id = R.dimen.all_medium))
-//            .fillMaxWidth()
-//            .heightIn(min = dimensionResource(id = R.dimen.search_height))
-//            .heightIn(min = 30.dp)
             .heightIn(30.dp)
             .clip(Shapes.medium)
-//            .background(color = Color.DarkGray, shape = Shapes.medium)
             .border(width = 1.dp, color = Color.Gray, shape = Shapes.medium)
             .testTag(TestTag.searchBar)
     )

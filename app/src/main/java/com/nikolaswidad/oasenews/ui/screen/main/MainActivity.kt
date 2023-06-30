@@ -18,9 +18,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
-import com.nikolaswidad.oasenews.ui.components.BottomBar
 import com.nikolaswidad.oasenews.ui.navigation.Screen
-//import com.nikolaswidad.oasenews.ui.navigation.SetupNavGraph
 import com.nikolaswidad.oasenews.ui.screen.detail.DetailScreen
 import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 

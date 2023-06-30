@@ -32,7 +32,7 @@ fun BookmarkScreen(
             if (news.isEmpty()) {
                 GenericState(
                     message = stringResource(id = R.string.bookmark_empty),
-                    drawable = R.mipmap.icon_news_empty,
+                    drawable = R.drawable.ic_empty_news,
                     modifier = modifier.align(Alignment.Center)
                 )
             } else {

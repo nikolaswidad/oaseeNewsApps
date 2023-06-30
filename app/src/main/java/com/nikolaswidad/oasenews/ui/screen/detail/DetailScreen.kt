@@ -75,34 +75,10 @@ fun DetailScreen(
             scaffoldState = scaffoldState,
 
             sheetContent = {
-                MyBottomSheet()
-//                Box(
-//                    modifier = Modifier
-//                        .fillMaxWidth()
-//                        .padding(horizontal = 10.dp)
-//                        .height(300.dp),
-//                    contentAlignment = Alignment.Center
-//                ) {
-//                    Text(
-//                        text = news.title.toString(),
-//                        style = Typography.body2
-//                    )
-//                }
+                MyBottomSheet(news)
             },
             sheetBackgroundColor = Color.White
         ) {
-
-//            FloatingActionButton(onClick = {
-//                scope.launch {
-//                    if (sheetState.isCollapsed) {
-//                        sheetState.expand()
-//                    } else {
-//                        sheetState.collapse()
-//                    }
-//                }
-//            }) {
-//                Text(text = "Toggle Sheet")
-//            }
 
             Box(
                 modifier = Modifier
@@ -117,12 +93,14 @@ fun DetailScreen(
 
 //Design for sheet
 @Composable
-fun MyBottomSheet() {
+fun MyBottomSheet(
+    news: NewsEntity
+) {
     Column(
         modifier = Modifier
             .heightIn(min = 150.dp, max = 800.dp)//This will set the max height
             .fillMaxSize()//Do this to make sheet expandable
-            .background(Color.Black.copy(0.2f))
+            .background(Color.White.copy(0.2f))
             .padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -130,13 +108,25 @@ fun MyBottomSheet() {
             modifier = Modifier
                 .height(3.dp)
                 .width(70.dp)
-                .background(Color.White)
+                .background(Color.Black)
         )
+
         Spacer(//Another spacer to add a space
             modifier = Modifier
                 .height(20.dp)
         )
-        Text(text = "Bottom Sheet")
+        Text(text = "Author : ${news.author}")
+
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(text = "Description")
+        Spacer(//Another spacer to add a space
+            modifier = Modifier
+                .height(20.dp)
+        )
+        Text(text = news.description.toString())
     }
 }
 

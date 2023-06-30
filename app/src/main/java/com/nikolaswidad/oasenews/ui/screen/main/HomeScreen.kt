@@ -32,7 +32,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.newsappcompose.datasource.Resource
 import com.nikolaswidad.oasenews.datasource.local.entity.NewsEntity
 import com.nikolaswidad.oasenews.ui.components.GenericState
-import com.nikolaswidad.oasenews.ui.components.NewsItem
 import com.nikolaswidad.oasenews.ui.components.SearchBar
 import com.nikolaswidad.oasenews.ui.theme.NewsAppComposeTheme
 import com.nikolaswidad.oasenews.utils.TestTag
@@ -64,22 +63,8 @@ fun HomeScreen(
             SearchBar(onSearch = {
                 if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
             })
-//            Text(
-//                modifier = Modifier.clickable {
-//                    navController.navigate(route = Screen.Bookmarks.route)
-//                },
-//                text = "home"
-//            )
-
-//            IconButtonRow(navController = onNavigateBookmark)
             IconButtonRow(navController = navController)
         }
-//        RowBar(
-//            onSearch = {
-//                if (it.isNotEmpty()) viewModel.searchNews(it) else viewModel.loadNews()
-//            },
-//            navController = NavHostController(context = LocalContext.current)
-//        )
 
         Box(modifier = modifier.fillMaxSize()) {
             when (state) {
@@ -93,7 +78,7 @@ fun HomeScreen(
                 is Resource.Error -> {
                     GenericState(
                         message = state?.message.toString(),
-                        drawable = R.mipmap.icon_news_empty,
+                        drawable = R.drawable.ic_empty_news,
                         modifier = modifier.align(Alignment.Center)
                     )
                 }
@@ -135,11 +120,6 @@ fun NewsContent(
             modifier = modifier.testTag(TestTag.newsList)
         ) {
             items(news, key = { it }) {
-    //            NewsItem(
-    //                news = it, onClickListener = { news ->
-    //                    onNavigateDetail(news)
-    //                }, modifier = Modifier.testTag(TestTag.newsItem)
-    //            )
                 NewsItemCard(
                     news = it,
                     onClickListener = { news ->
